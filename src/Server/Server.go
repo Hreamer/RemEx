@@ -22,6 +22,8 @@ func main() {
 }
 
 func goHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Received /Go Request")
+
 	if r.URL.Path != "/go" {
 		http.Error(w, "404 not found.", http.StatusNotFound)
 		return
