@@ -28,9 +28,10 @@ func main() {
 
 	flag.Parse()
 
-	fmt.Printf("-PATH was set to: %s\n", *path)
-	fmt.Printf("-Address was set to %s\n", *address)
-	fmt.Printf("-Language was set to: %s\n", *language)
+	//Flag Test Code
+	//fmt.Printf("-PATH was set to: %s\n", *path)
+	//fmt.Printf("-Address was set to %s\n", *address)
+	//fmt.Printf("-Language was set to: %s\n", *language)
 
 	//open the file
 	file, err := os.Open(*path)
