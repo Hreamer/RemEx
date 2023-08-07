@@ -24,12 +24,13 @@ func main() {
 	//Parse the flags and also print help message for all flags if -help is called
 	var path = flag.String("p", "", "The path of the file you wish to send")
 	var address = flag.String("a", "", "The address to send the file")
-	var language = flag.String("t", "", "The language of the file. Check README for supported languages")
+	var language = flag.String("l", "", "The language of the file. Check README for supported languages")
 
 	flag.Parse()
 
 	fmt.Printf("-PATH was set to: %s\n", *path)
 	fmt.Printf("-Address was set to %s\n", *address)
+	fmt.Printf("-Language was set to: %s\n", *language)
 
 	//open the file
 	file, err := os.Open(*path)
@@ -40,7 +41,7 @@ func main() {
 
 	//send the file
 	//Note: os.Open returns a file type and it implements the io.Reader interface
-	resp, postErr := http.Post(*address+"/"+*language, "text/plain", file)
+	resp, postErr := http.Post(*address+*language, "text/plain", file)
 	if postErr != nil {
 		fmt.Println("RemEx failed to send the POST request")
 		os.Exit(0)
