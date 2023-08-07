@@ -51,7 +51,7 @@ func goHandler(w http.ResponseWriter, r *http.Request) {
 	file.Write(body)
 	file.Close()
 
-	cmd := exec.Command("go", "build", file.Name())
+	cmd := exec.Command("go", "run", file.Name())
 	stdout, err := cmd.Output()
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusNotFound)
